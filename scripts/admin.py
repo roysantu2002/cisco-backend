@@ -4,7 +4,7 @@ from .models import NetworkDeviceInfo, NetworkDeviceLog, ScriptInfo
 
 @admin.register(ScriptInfo)
 class NetworkDeviceInfoAdmin(admin.ModelAdmin):
-    list_display = ('name')
+    list_display = ('name', 'author')
 
 
 @admin.register(NetworkDeviceInfo)

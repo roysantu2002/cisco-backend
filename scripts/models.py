@@ -9,15 +9,15 @@ STATUS_CHOICES = (
 class ScriptInfo(models.Model):
     name = models.CharField(max_length=255, unique=True)  # Name of the script
     description = models.TextField(blank=True, null=True)  # Description of the script (optional)
-    script_file = models.FileField(upload_to='scripts/')  # Store the script file
+    script_file = models.FileField(upload_to='scripts/', blank=True)  # Store the script file
     created_at = models.DateTimeField(auto_now_add=True)  # Timestamp for when the record was created
     last_modified = models.DateTimeField(auto_now=True)  # Timestamp for when the record was last modified
     author = models.CharField(max_length=255)  # Author of the script
-    version = models.CharField(max_length=50)  # Version number of the script
-    arguments = models.TextField()  # Arguments required by the script
-    execution_frequency = models.CharField(max_length=50)  # How often the script runs
+    version = models.CharField(max_length=50, blank=True)  # Version number of the script
+    arguments = models.TextField(blank=True)  # Arguments required by the script
+    execution_frequency = models.CharField(max_length=50, blank=True)  # How often the script runs
     status = models.CharField(max_length=20, choices=STATUS_CHOICES)  # Script status (e.g., active, inactive)
-    info = models.TextField()
+    info = models.TextField(blank=True)
 
 
     def __str__(self):

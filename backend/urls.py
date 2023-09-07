@@ -13,6 +13,7 @@ from channels.routing import ProtocolTypeRouter, URLRouter
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/account/', include('users.urls')),
     path('api/schema/', SpectacularAPIView.as_view(), name='api-schema'),
     path('api/scripts/', include('scripts.urls')),  # Include the 'scripts.urls' here
     path(
